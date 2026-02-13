@@ -1,0 +1,33 @@
+# Compiled output
+out
+dist
+*.vsix
+
+# Dependencies
+node_modules
+
+# VS Code
+.vscode-test/
+.vscode/.ropeproject
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+test-providers.js
+verify-extension.js
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~

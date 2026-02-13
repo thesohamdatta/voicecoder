@@ -1,0 +1,126 @@
+{
+  "name": "voicecoder",
+  "displayName": "VoiceCoder - Multi-Provider Voice Coding Assistant",
+  "description": "Voice-controlled coding with support for Claude, GPT, Gemini, and free local models",
+  "version": "0.1.0",
+  "publisher": "voicecoder",
+  "icon": "assets/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning"
+  ],
+  "keywords": [
+    "voice",
+    "ai",
+    "coding",
+    "assistant",
+    "claude",
+    "gpt",
+    "gemini",
+    "ollama"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "voicecoder.toggleVoice",
+        "title": "VoiceCoder: Toggle Voice Interface",
+        "icon": "$(mic)"
+      },
+      {
+        "command": "voicecoder.selectProvider",
+        "title": "VoiceCoder: Select AI Provider"
+      },
+      {
+        "command": "voicecoder.askAboutCode",
+        "title": "VoiceCoder: Ask About Selected Code"
+      },
+      {
+        "command": "voicecoder.showUsage",
+        "title": "VoiceCoder: Show Usage & Costs"
+      }
+    ],
+    "configuration": {
+      "title": "VoiceCoder",
+      "properties": {
+        "voicecoder.provider": {
+          "type": "string",
+          "enum": [
+            "anthropic",
+            "openai",
+            "google",
+            "ollama"
+          ],
+          "default": "anthropic",
+          "description": "AI Provider"
+        },
+        "voicecoder.model": {
+          "type": "string",
+          "default": "auto",
+          "description": "Model to use (auto = best available)"
+        },
+        "voicecoder.voiceInput": {
+          "type": "string",
+          "enum": [
+            "web",
+            "whisper"
+          ],
+          "default": "web",
+          "description": "Voice input method"
+        },
+        "voicecoder.proactiveAssistance": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable proactive code suggestions"
+        },
+        "voicecoder.notificationCooldown": {
+          "type": "number",
+          "default": 5,
+          "description": "Minutes between proactive notifications"
+        },
+        "voicecoder.ollamaUrl": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "Ollama server URL (for local models)"
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "command": "voicecoder.askAboutCode",
+          "when": "editorHasSelection",
+          "group": "voicecoder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.80.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.1.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.0",
+    "openai": "^4.20.0",
+    "@google/generative-ai": "^0.1.0",
+    "chokidar": "^3.5.3"
+  }
+}
