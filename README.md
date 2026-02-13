@@ -1,10 +1,12 @@
 # VoiceCoder - Multi-Provider Voice Coding Assistant
 
-Voice-controlled coding assistant for VS Code with support for Claude, GPT, Gemini, and free local models.
+Voice-controlled coding assistant for VS Code with support for Claude, GPT,
+Gemini, and free local models.
 
 ## 🚀 Features
 
-- **Multi-Provider Support**: Choose from Anthropic Claude, OpenAI GPT, Google Gemini, or Ollama (local/free)
+- **Multi-Provider Support**: Choose from Anthropic Claude, OpenAI GPT, Google
+  Gemini, or Ollama (local/free)
 - **Voice Control**: Code using your voice (coming soon)
 - **Smart Code Analysis**: Ask questions about selected code
 - **Cost Tracking**: Monitor token usage and estimated costs
@@ -42,23 +44,27 @@ Voice-controlled coding assistant for VS Code with support for Claude, GPT, Gemi
 ## 🤖 Supported Providers
 
 ### Anthropic Claude
+
 - **Models**: Claude Sonnet 4.5, Claude Opus 4.5
 - **Best for**: Code understanding and complex analysis
 - **Pricing**: From $0.003/1K tokens
 - **Free Tier**: $5 credit
 
 ### OpenAI GPT
+
 - **Models**: GPT-4 Turbo, GPT-4o, GPT-3.5 Turbo
 - **Best for**: General AI tasks
 - **Pricing**: From $0.01/1K tokens
 
 ### Google Gemini
+
 - **Models**: Gemini 1.5 Pro, Gemini 1.5 Flash
 - **Best for**: Fast responses with large context
 - **Pricing**: From $0.00125/1K tokens
 - **Free Tier**: 15 requests per minute
 
 ### Ollama (Local)
+
 - **Models**: CodeLlama, DeepSeek Coder, Qwen2.5 Coder
 - **Best for**: Privacy, offline use, unlimited usage
 - **Pricing**: 100% FREE
@@ -92,10 +98,12 @@ VoiceCoder tracks all token usage and provides detailed cost estimates:
 ## 🛠️ Development
 
 ### Prerequisites
+
 - Node.js 22.x
 - VS Code 1.80+
 
 ### Setup
+
 ```bash
 git clone <repository>
 cd voicecoder
@@ -104,11 +112,13 @@ npm run compile
 ```
 
 ### Run Extension
+
 1. Press `F5` in VS Code
 2. A new Extension Development Host window will open
 3. Test the extension
 
 ### Build VSIX
+
 ```bash
 npm install -g @vscode/vsce
 vsce package
