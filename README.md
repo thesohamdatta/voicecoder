@@ -1,3 +1,6 @@
+
+
+
 # VoiceCoder
 
 AI-powered code assistance for Visual Studio Code with support for multiple
@@ -8,6 +11,10 @@ language models.
 VoiceCoder integrates leading AI providers into your development workflow,
 enabling intelligent code analysis, explanation, and assistance directly within
 VS Code.
+
+## Important:
+currently voicecoder is changing its foundational architecture and migrating  extension based assistance to  a integrated voice assisatnce in IDE . 
+stay tuned
 
 ## Supported Providers
 
