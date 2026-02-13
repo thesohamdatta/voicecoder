@@ -1,161 +1,83 @@
-# VoiceCoder - Multi-Provider Voice Coding Assistant
+# VoiceCoder
 
-Voice-controlled coding assistant for VS Code with support for Claude, GPT,
-Gemini, and free local models.
+AI-powered code assistance for Visual Studio Code with support for multiple
+language models.
 
-## 🚀 Features
+## Overview
 
-- **Multi-Provider Support**: Choose from Anthropic Claude, OpenAI GPT, Google
-  Gemini, or Ollama (local/free)
-- **Voice Control**: Code using your voice (coming soon)
-- **Smart Code Analysis**: Ask questions about selected code
-- **Cost Tracking**: Monitor token usage and estimated costs
-- **100% Free Option**: Use Ollama for unlimited local LLM access
-- **Secure API Keys**: Keys stored securely in VS Code's secret storage
+VoiceCoder integrates leading AI providers into your development workflow,
+enabling intelligent code analysis, explanation, and assistance directly within
+VS Code.
 
-## 📦 Installation
+## Supported Providers
 
-1. Install from VS Code Marketplace (coming soon)
-2. Or install from VSIX:
-   ```bash
-   code --install-extension voicecoder-0.1.0.vsix
-   ```
+**Anthropic Claude**\
+Models: Sonnet 4.5, Opus 4.5\
+Context: 200K tokens
 
-## 🎯 Quick Start
+**OpenAI**\
+Models: GPT-4 Turbo, GPT-4o, GPT-3.5 Turbo\
+Context: 128K tokens
 
-1. **Select Your AI Provider**
-   - Press `Cmd/Ctrl+Shift+P`
-   - Type "VoiceCoder: Select AI Provider"
-   - Choose your preferred provider
-   - Enter API key when prompted (not needed for Ollama)
+**Google Gemini**\
+Models: Gemini 2.5 Flash, Gemini 2.5 Pro\
+Context: 1M tokens
 
-2. **Ask About Code**
-   - Select code in your editor
-   - Right-click → "VoiceCoder: Ask About Selected Code"
-   - Or press `Cmd/Ctrl+Shift+P` → "VoiceCoder: Ask About Selected Code"
-   - Type your question
-   - Get instant AI-powered answers!
+**Ollama**\
+Models: CodeLlama, DeepSeek Coder, Qwen2.5 Coder\
+Local execution, no API key required
 
-3. **Check Usage & Costs**
-   - Press `Cmd/Ctrl+Shift+P`
-   - Type "VoiceCoder: Show Usage & Costs"
-   - View detailed token usage and cost breakdown
+## Installation
 
-## 🤖 Supported Providers
+Install from the VS Code marketplace or build from source.
 
-### Anthropic Claude
+## Quick Start
 
-- **Models**: Claude Sonnet 4.5, Claude Opus 4.5
-- **Best for**: Code understanding and complex analysis
-- **Pricing**: From $0.003/1K tokens
-- **Free Tier**: $5 credit
+1. Open Command Palette (Ctrl+Shift+P)
+2. Run "VoiceCoder: Select AI Provider"
+3. Enter API key when prompted
+4. Select code and run "VoiceCoder: Ask About Selected Code"
 
-### OpenAI GPT
+## Commands
 
-- **Models**: GPT-4 Turbo, GPT-4o, GPT-3.5 Turbo
-- **Best for**: General AI tasks
-- **Pricing**: From $0.01/1K tokens
+- `VoiceCoder: Select AI Provider` - Configure provider
+- `VoiceCoder: Ask About Selected Code` - Analyze code
+- `VoiceCoder: Show Usage & Costs` - View statistics
 
-### Google Gemini
+## API Keys
 
-- **Models**: Gemini 1.5 Pro, Gemini 1.5 Flash
-- **Best for**: Fast responses with large context
-- **Pricing**: From $0.00125/1K tokens
-- **Free Tier**: 15 requests per minute
+**Anthropic**: https://console.anthropic.com\
+**OpenAI**: https://platform.openai.com\
+**Google**: https://makersuite.google.com/app/apikey\
+**Ollama**: https://ollama.ai (no key required)
 
-### Ollama (Local)
+All keys are stored securely using VS Code's secret storage.
 
-- **Models**: CodeLlama, DeepSeek Coder, Qwen2.5 Coder
-- **Best for**: Privacy, offline use, unlimited usage
-- **Pricing**: 100% FREE
-- **Setup**: Install [Ollama](https://ollama.ai) and run `ollama serve`
-
-## ⚙️ Configuration
-
-Open VS Code settings and search for "VoiceCoder":
-
-- `voicecoder.provider`: Choose your AI provider
-- `voicecoder.model`: Select specific model (or "auto")
-- `voicecoder.voiceInput`: Voice input method (web/whisper)
-- `voicecoder.proactiveAssistance`: Enable proactive suggestions
-- `voicecoder.ollamaUrl`: Ollama server URL (default: http://localhost:11434)
-
-## 🔒 Security
-
-- API keys are stored securely using VS Code's built-in secret storage
-- Keys are never logged or transmitted except to the respective AI providers
-- Local models (Ollama) require no API keys
-
-## 📊 Cost Management
-
-VoiceCoder tracks all token usage and provides detailed cost estimates:
-
-- Per-provider token counts
-- Estimated costs in USD
-- Total usage across all providers
-- Reset tracking anytime
-
-## 🛠️ Development
-
-### Prerequisites
-
-- Node.js 22.x
-- VS Code 1.80+
-
-### Setup
+## Development
 
 ```bash
-git clone <repository>
-cd voicecoder
 npm install
 npm run compile
+npm run watch
 ```
 
-### Run Extension
+Press F5 in VS Code to launch the extension development host.
 
-1. Press `F5` in VS Code
-2. A new Extension Development Host window will open
-3. Test the extension
+## Architecture
 
-### Build VSIX
-
-```bash
-npm install -g @vscode/vsce
-vsce package
+```
+src/
+├── extension.ts          # Entry point
+├── llm/                  # Provider implementations
+├── security/             # Key management
+├── types/                # TypeScript definitions
+└── utils/                # Utilities
 ```
 
-## 📝 Roadmap
+## License
 
-- [x] Multi-provider LLM support
-- [x] Code analysis and Q&A
-- [x] Cost tracking
-- [ ] Voice input (Web Speech API)
-- [ ] Voice input (Whisper)
-- [ ] Proactive code monitoring
-- [ ] File watching and suggestions
-- [ ] Custom prompts
-- [ ] Team collaboration features
+MIT
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-MIT License - see LICENSE file for details
-
-## 🙏 Acknowledgments
-
-- Anthropic for Claude API
-- OpenAI for GPT API
-- Google for Gemini API
-- Ollama for local LLM runtime
-
-## 📞 Support
-
-- GitHub Issues: [Report bugs or request features]
-- Documentation: [Link to docs]
-
----
-
-**Made with ❤️ for developers who want to code faster with AI**
+Issues and pull requests welcome.
